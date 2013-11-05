@@ -2,21 +2,20 @@
 WORLD=$1
 SERVERPATH="/srv/minecraft"
 SAVEDIR="saves"
-LATEST="$WORLD_latest"
+LASTEST=$WORLD"_latest"
 SAVEPATH="$SERVERPATH/$SAVEDIR"
-$WORLDSAVEPATH="$SAVEPATH/$WORLD"
-
-if [[ -d == $SERVERPATH/$WORLD ]]
+WORLDSAVEPATH="$SAVEPATH/$WORLD"
+if [[ -d "$SERVERPATH/$WORLD" ]]
     then
-        mkdir -p "$WORLDSAVEPATH/$LATEST" 2>/dev/null
-        if [[ -d == "$WORLDSAVEPATH/$LATEST" ]]
+        mkdir -p "$WORLDSAVEPATH/$LASTEST" #2>/dev/null
+        if [[ -d "$WORLDSAVEPATH/$LASTEST" ]]
             then
-                if [[ -f  "$WORLDSAVEPATH/$LATEST/level.dat"]]
+                if [[ -f "$WORLDSAVEPATH/$LASTEST/level.dat" ]]
                     then
-                    LASTMODIF=`stat -c %Y $WORLDSAVEPATH/$LATEST`
-                    tar czf $WORLDSAVEPATH/$LASTMODIF.tar.gz $WORLDSAVEPATH/$LATEST && wait
+                    LASTMODIF=`stat -c %Y $WORLDSAVEPATH/$LASTEST`
+                    tar czf $WORLDSAVEPATH/$LASTMODIF.tar.gz $WORLDSAVEPATH/$LASTEST && wait
                 fi
-                rsync -ar $SERVERPATH/$WORLD/* $WORLDSAVEPATH/$LATEST/
+                rsync -ar $SERVERPATH/$WORLD/* $WORLDSAVEPATH/$LASTEST/
         fi
 fi
         
