@@ -7,7 +7,7 @@ SAVEPATH="$SERVERPATH/$SAVEDIR"
 WORLDSAVEPATH="$SAVEPATH/$WORLD"
 if [[ -d "$SERVERPATH/$WORLD" ]]
     then
-        mkdir -p "$WORLDSAVEPATH/$LASTEST" #2>/dev/null
+        mkdir -p "$WORLDSAVEPATH/$LASTEST" 2>/dev/null
         if [[ -d "$WORLDSAVEPATH/$LASTEST" ]]
             then
                 if [[ -f "$WORLDSAVEPATH/$LASTEST/level.dat" ]]
