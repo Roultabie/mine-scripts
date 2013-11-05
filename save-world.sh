@@ -15,7 +15,7 @@ if [[ -d "$SERVERPATH/$WORLD" ]]
                     LASTMODIF=`stat -c %Y $WORLDSAVEPATH/$LASTEST`
                     tar czf $WORLDSAVEPATH/$LASTMODIF.tar.gz $WORLDSAVEPATH/$LASTEST && wait
                 fi
-                rsync -ar $SERVERPATH/$WORLD/* $WORLDSAVEPATH/$LASTEST/
+                rsync -ar $SERVERPATH/$WORLD/* $WORLDSAVEPATH/$LASTEST/ && wait
         fi
 fi
         
