@@ -12,7 +12,7 @@ if [[ -d "$SERVERPATH/$WORLD" ]]
             then
                 if [[ -f "$WORLDSAVEPATH/$LASTEST/level.dat" ]]
                     then
-                    LASTMODIF=`stat -c %Y $WORLDSAVEPATH/$LASTEST`
+                    LASTMODIF=$(stat -c %Y $WORLDSAVEPATH/$LASTEST)
                     tar czf $WORLDSAVEPATH/$LASTMODIF.tar.gz $WORLDSAVEPATH/$LASTEST && wait
                 fi
                 rsync -ar $SERVERPATH/$WORLD/* $WORLDSAVEPATH/$LASTEST/ && wait
